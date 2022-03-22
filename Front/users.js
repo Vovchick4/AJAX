@@ -1,3 +1,5 @@
+'use strict'
+
 const content = document.getElementsByClassName("content_users")[0]
 
 const users = [
@@ -46,7 +48,7 @@ const users = [
 ]
 
 function fetchAllUsers() {
-    fetch("https://softserve.academy/pluginfile.php/153532/mod_resource/content/1/users.json",
+    fetch("https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits",
         {
             method: "GET",
             // headers: {
@@ -62,8 +64,9 @@ function fetchAllUsers() {
         }
     )
         .then((res) => {
+            // res.json().then((res) => console.log(res))
             console.log(res.json())
-            genereteList(res.json())
+            genereteList(response.json())
         })
         .catch((error) => console.log(error.message))
 }
