@@ -2,53 +2,8 @@
 
 const content = document.getElementsByClassName("content_users")[0]
 
-const users = [
-    {
-        "id": 1,
-        "email": "michael.lawson@reqres.in",
-        "first_name": "Michael",
-        "last_name": "Lawson",
-        "photo": "https://reqres.in/img/faces/7-image.jpg"
-    },
-    {
-        "id": 2,
-        "email": "lindsay.ferguson@reqres.in",
-        "first_name": "Lindsay",
-        "last_name": "Ferguson",
-        "photo": "https://reqres.in/img/faces/8-image.jpg"
-    },
-    {
-        "id": 3,
-        "email": "tobias.funke@reqres.in",
-        "first_name": "Tobias",
-        "last_name": "Funke",
-        "photo": "https://reqres.in/img/faces/9-image.jpg"
-    },
-    {
-        "id": 4,
-        "email": "byron.fields@reqres.in",
-        "first_name": "Byron",
-        "last_name": "Fields",
-        "photo": "https://reqres.in/img/faces/10-image.jpg"
-    },
-    {
-        "id": 5,
-        "email": "george.edwards@reqres.in",
-        "first_name": "George",
-        "last_name": "Edwards",
-        "photo": "https://reqres.in/img/faces/11-image.jpg"
-    },
-    {
-        "id": 6,
-        "email": "rachel.howell@reqres.in",
-        "first_name": "Rachel",
-        "last_name": "Howell",
-        "photo": "https://reqres.in/img/faces/12-image.jpg"
-    }
-]
-
 function fetchAllUsers() {
-    fetch("https://softserve.academy/pluginfile.php/153532/mod_resource/content/1/users.json",
+    fetch("http://127.0.0.1:3000/users",
         {
             method: "GET",
             // headers: {
@@ -64,14 +19,11 @@ function fetchAllUsers() {
         }
     )
         .then((res) => {
-            // res.json().then((res) => console.log(res))
-            console.log(res.json())
-            genereteList(response.json())
+            res.json().then((res) => genereteList(res))
         })
         .catch((error) => console.log(error.message))
 }
 
-genereteList(users)
 function genereteList(mas) {
     let str = ``;
     mas.map((item) => (
