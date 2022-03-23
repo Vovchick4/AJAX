@@ -48,7 +48,7 @@ const users = [
 ]
 
 function fetchAllUsers() {
-    fetch("https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits",
+    fetch("https://softserve.academy/pluginfile.php/153532/mod_resource/content/1/users.json",
         {
             method: "GET",
             // headers: {
